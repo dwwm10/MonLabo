@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test API météo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+   <script>
+
+       //Test du service de géolocalisation sur le navigateur
+    //    if ("geolocation" in  navigator) {
+    //        console.log("La geolocalisation est disponnible");
+    //    }else{
+    //     console.log("La geolocalisation n'est pas disponnible");
+    //    }
+
+        var lat;
+        var long;
+
+       //Je recupère les coordonnées fournies par le navigateur --> getCurrentPosition()...
+        navigator.geolocation.getCurrentPosition(function(position) {
+            lat = position.coords.latitude;
+            long = position.coords.longitude;
+        console.log("longitude = " + long +  " latitude = " + lat);
+        }, function () {
+            console.log("Service indisponnible, nous n'avons pas eu accés à vos coordonnées !");
+        });
+
+        //Je récupère les données via L'API météo ...
+        $.getJSON("api.openweathermap.org/data/2.5/weather?lat={"+lat+"}&lon={"+long+"}&appid={97c5b5c6988c53e45279eafb74667454}", function(data){
+            console.log(data.weather.description);
+        })
+
+   </script> 
+
+</body>
+</html>
