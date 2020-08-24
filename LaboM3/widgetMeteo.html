@@ -9,14 +9,11 @@
 </head>
 
 <body>
+
+    <!-- Encart météo script -->
    <script>
 
-       //Test du service de géolocalisation sur le navigateur
-    //    if ("geolocation" in  navigator) {
-    //        console.log("La geolocalisation est disponnible");
-    //    }else{
-    //     console.log("La geolocalisation n'est pas disponnible");
-    //    }
+       
 
         var lat;
         var long;
@@ -25,15 +22,18 @@
         navigator.geolocation.getCurrentPosition(function(position) {
             lat = position.coords.latitude;
             long = position.coords.longitude;
+
+            //Je récupère les données via L'API météo en fournissant les donnéesde géolocalisations ...
+            $.getJSON(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=97c5b5c6988c53e45279eafb74667454&lang=fr&units=metric`, function(data){
+                console.log(data);
+            })
+
         console.log("longitude = " + long +  " latitude = " + lat);
         }, function () {
             console.log("Service indisponnible, nous n'avons pas eu accés à vos coordonnées !");
         });
 
-        //Je récupère les données via L'API météo ...
-        $.getJSON("api.openweathermap.org/data/2.5/weather?lat={"+lat+"}&lon={"+long+"}&appid={97c5b5c6988c53e45279eafb74667454}", function(data){
-            console.log(data.weather.description);
-        })
+       
 
    </script> 
 
