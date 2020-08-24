@@ -15,20 +15,20 @@
 
        
 
-        var lat;
-        var long;
+      
 
        //Je recupère les coordonnées fournies par le navigateur --> getCurrentPosition()...
         navigator.geolocation.getCurrentPosition(function(position) {
-            lat = position.coords.latitude;
-            long = position.coords.longitude;
-
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+             console.log("longitude = " + long +  " latitude = " + lat);
+             
             //Je récupère les données via L'API météo en fournissant les donnéesde géolocalisations ...
             $.getJSON(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=97c5b5c6988c53e45279eafb74667454&lang=fr&units=metric`, function(data){
                 console.log(data);
             })
 
-        console.log("longitude = " + long +  " latitude = " + lat);
+       
         }, function () {
             console.log("Service indisponnible, nous n'avons pas eu accés à vos coordonnées !");
         });
