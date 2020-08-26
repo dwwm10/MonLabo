@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Fonction rechercher</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ 
+</head>
+<body>
+
+    <div class="container mt-3">
+        <h2>Filterable List</h2>
+        <p>Type something in the input field to search the list for specific items:</p>  
+        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <br>
+    </div>
+    <div id="affichage">
+
+    </div>
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../../seb/boutonsNav/data/albums.js"></script>
+    <script src="../../seb/boutonsNav/data/auteurs.js"></script>
+    <script src="../../seb/boutonsNav/data/series.js"></script>
+    <script src="./search.js"></script>
+    <script>
+
+        console.log(albums);
+
+        $(document).ready(function(){ 
+
+            // $("#myInput").on("keyup", function() {
+
+            //     var value = $(this).val().toLowerCase();
+
+            //     $(albums).filter(function() {
+            //         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1) //indexof(value) indique l'index de départ de recherche sur la chaine 
+            //         // $(this).toggle($(this).text().toLowerCase().indexOf(value) > 0)
+
+            //         console.log($(this).text().toLowerCase().indexOf(value));
+            //     });
+
+            // });
+            
+            
+        });
+
+    </script>
+      
+</body>
+</html>
