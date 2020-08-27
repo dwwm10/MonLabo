@@ -11,13 +11,33 @@
 </head>
 <body>
 
-    <h1>BARRE DE RECHERCHE</h1>
-    <form action="">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search..." id="searchRequest">
+    <div class="container mx-auto mt-5">
+
+        <h1 class="">BARRE DE RECHERCHE</h1>
+        <form action="">
+
+            <div class="input-group">
+
+                <input type="text" class="form-control col-md-5 recherche" placeholder="Search..." id="Recherche">
+                <div class="input-group-append">
+                    <button class="input-group-text go">GO</button>
+                </div>
+
+            </div>
+            
+        </form>
+
+    </div>
+
+    <div class="container resultat-recherche mx-auto mt-4">
+
+        <div>
+            
+
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+
+    </div>
+    
 
  <!-- SCRIPT JQUERY ------------------------------------------------------->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -26,7 +46,7 @@
  <!-- FIN JQUERY ----------------------------------------------------------->
 
  <!-- MY SCRIPTS ----------------------------------------------------------->
-
+    <script src="./search2.js"></script>
  <!-- FIN SCRIPTS ---------------------------------------------------------->
 
 </body>
