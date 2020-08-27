@@ -3,7 +3,12 @@ $(function(){
     setHTMLSearchBar(".SearchBar");
     getSearchRequest();
     
-    /* Fonction Recupère la valeur à rechercher...
+
+    var resultat = searchInMap(albums, "Marsupilami");
+    console.log(resultat);
+
+
+    /* Fonction Recupère la valeur à rechercher...OK
         Mission : Recupérer l'objet de la recherche
         Input   : ...
         Output  : La valeur de l'input text
@@ -14,6 +19,9 @@ $(function(){
         $(".go").on({                                                      //--> Syntaxe pour evenement multiple avec methode .on({...});
 
             click: function(){
+
+                $(".go").addClass("btn-info");
+
                 var saisie = $(".recherche").val();
                 return saisie;
                 
@@ -22,9 +30,18 @@ $(function(){
 
             mouseover:function(){
 
-                $(".go").toggleClass("btn-primary");
+                $(".go").removeClass("btn-info");
+                $(".go").addClass("btn-primary");
+
+            },
+
+            mouseout: function(){
+
+                $(".go").removeClass("btn-primary");
+                $(".go").removeClass("btn-info");
 
             }
+
 
         });
     }
@@ -47,9 +64,11 @@ $(function(){
         Output  : Un Tableau des resultats ('resultTab')
     */
    function searchInMap(map, element){
-
-        var resultTab = map.filter() ;
-
+        //filtrage par rapport à une fonction: si fn => true alors recupère element
+        var resultTab = new Array([...map].filter(([cle, valeur]) => valeur.titre.toLowerCase().includes(element.toLowerCase())))  ;
+        var newTab = resultTab[0].every()
+        //var albumsRecherche = new Map([...albums].filter(([cle, valeur]) => valeur.titre.toLowerCase().includes(recherche.toLowerCase())));
+       
         return resultTab;
 
     }
